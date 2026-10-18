@@ -1,0 +1,64 @@
+/* nav main banner*/
+body {
+background-color: red ;
+}
+/* centralisied heading with white for ease of reading */
+h1 {
+  color:white;
+  text-align: center;
+}
+p{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 25px;
+  color: white;
+}
+
+/* responsive functionality */
+@media (max-width:600px){
+  .content-grid{
+    grid-template-columns: 1fr;
+  }
+}
+/* autocomplete form */
+label {
+  display: block;
+  margin-top: 1rem;
+}
+
+/* background image */
+div {
+  width:100%;
+  height: 200px;
+  background-image: url('Poppy field.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid black;
+}
+/* animation via js */
+.animate__animate__fadeIn{
+  --animation-duration: 5s;
+}
+/* Footer Block*/
+footer{
+  text-align: center;
+  Padding: 4px;
+  background-color: black;
+  color:white;
+}
+/* form Accessibilty taken from HTML & CSS design and build websites Jon Ducket, wiley ud */
+input{
+  padding: 4px 10px 4px 10px;
+  border:2 px solid white;
+  color:burlywood;}
+input.submit:hover {
+  background-color: burlywood
+}
+input.submit:active{
+  background-color:burlywood
+}
+input.text{
+  color:blueviolet;
+}
+input.text:focus{
+  color:burlywood
+}

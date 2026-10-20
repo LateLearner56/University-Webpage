@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>German Aircraft</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+ <style>
+    body {
+      background-image:
+        url('Poppy field.jpg');
+      background-repeat:
+        no-repeat;
+      background-size:
+        cover;
+      background-attachment:
+        fixed;
+    }
+
+    h1,h2,h3 {
+      color: white;
+    }
+
+    p {
+      color: white;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      background-color: blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+    }
+
+    ul li {
+      float: left;
+    }
+
+    ul li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    ul li a:hover {
+      background-color: black;
+    }
+  </style>
+<body>
+<!-- We API to get data wherte the viewers are located taken from https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation_watchposition -->
+ <button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(success, error);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+    
+function success(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+
+function error(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+</script>
+
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h1>Home</h1>
+</div>
+    <ul>
+      <li><a href="GermanAircraft.html">German Aircraft</a></li>
+      <li><a href="BritishAircraft.html">British Aircraft</a></li>
+      <li><a href="Stories.html">Stories</a></li>
+      <li><a href="ContactUs.html">Contact Us</a></li>
+      <form class="d-flex">
+        <input class="form-control me-2" type="text" placeholder="Search">
+        <button class="btn btn-primary" type="button">Search</button>
+      </form>
+    </ul>
+  </nav>
+<!-- taken from Youtube No copyright and used under the fair usage of copyright law -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9sO5AXP2RjM?si=6dBVhaO88ovnbslO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-sm-3">
+      <h3>Why this page has been created </h3>
+      <p>This has been a important part of my life, it was a interest I shared with my late Father and especially the airshows we shared together. An interest that has followed from childhood to adulthood, understanding we are here with the actions of the few who risked their lives so we can live ours.
+        I live in part of the country where the Lancaster bomber had a heavy presence and still does with the restoration being applied. More on that later in the stories page.  
+
+        We need to remember that it is with the assistance of other european countries such as Poland who provided the pilots to allow the aircraft to be flown in the sorties.
+      </p>
+      
+    </div>
+    <div class="col-sm-3">
+      <h3>My Passion  for this topic</h3>
+      <p>Although I have covered the aircraft for both the opposiung and defending the respective countries, you will notice I have special respect for Lancaster Bomber as the heavy bomber and with the escort of the spitfire and hurricanes provided a succesful resolution.   It came a high price with the number of aricraft that never made it home and pilots either MIA or taken prisioner.
+    </div>
+    <div class="col-sm-3">
+      <h3>Places to visit</h3>        
+      <p>Lincolnshire is an area of interest of the Histoty of Lancaster BOmber with school named after the creator of the bouncing Bomb, Lincolnshire Air Museum that is currently working on a lancaster bomber <b> Just Jane</b> with the intention to make the third airworthy lanc to fly ></p>
+      
+    </div>
+  </div>
+</div>
+
+  <!-- Footer layout taken from W3Schools-->
+ <footer>
+  <p>Author: Hege Refsnes</p>
+  <p><a href="mailto:BOB@mil.com">BOB@mil.com</a></p>
+  <p>Jane Warnes @copy 2026</p>
+  </footer>

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+ 
 </head>
  <style>
     body {
@@ -61,25 +62,42 @@
     }
   </style>
 <body>
-<!-- We API to get data wherte the viewers are located-->
-  <button onclick="getLocation()">Try It</button>
+<!-- We API to get data wherte the viewers are located taken from https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation_watchposition -->
+ <button onclick="getLocation()">Try It</button>
 
-<p id="Location"></p>
+<p id="demo"></p>
 
 <script>
-const x = document.getElementById("Location");
+const x = document.getElementById("demo");
 
 function getLocation() {
-  try {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } catch(err) {
-    x.innerHTML = err;
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(success, error);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
+    
+function success(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
 
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
+function error(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
 }
 </script>
 
@@ -91,9 +109,9 @@ function showPosition(position) {
       <li><a href="BritishAircraft.html">British Aircraft</a></li>
       <li><a href="Stories.html">Stories</a></li>
       <li><a href="ContactUs.html">Contact Us</a></li>
-      <form>
-        <label for="Site Search">Site Search:</label>
-        <input type="search" id="site search" name="site search">
+      <form class="d-flex">
+        <input class="form-control me-2" type="text" placeholder="Search">
+        <button class="btn btn-primary" type="button">Search</button>
       </form>
     </ul>
   </nav>
@@ -123,7 +141,10 @@ function showPosition(position) {
 </div>
 
   <!-- Footer layout taken from W3Schools-->
-<footer>
-  <p>Author: Jane Warnes<br>
-  <a href="mailto:
-</footer>
+ <footer>
+  <p>Author:Jane Warnes</p>
+  <p><a href="mailto:BOB@mil.com">BOB@mil.com</a></p>
+  <p>Jane Warnes @copy 2026</p>
+  </footer>
+</body>
+</html>
